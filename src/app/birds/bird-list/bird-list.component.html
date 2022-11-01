@@ -1,0 +1,16 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Espécie</th>
+        <th>Família</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dt of birdData">
+        <td>{{dt.species}}</td>
+        <td>{{dt.family}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
