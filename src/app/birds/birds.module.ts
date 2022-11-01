@@ -12,11 +12,14 @@ import { BirdCardComponent } from './bird-card/bird-card.component';
 import { MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatHeaderRow, MatTableModule } from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
     BirdListComponent,
-    BirdCardComponent
+    BirdCardComponent,
+
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,8 @@ import { MatIconModule } from '@angular/material/icon';
     // Material
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
 
   ]
 })

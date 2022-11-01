@@ -1,16 +1,26 @@
 <div class="container">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Espécie</th>
-        <th>Família</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let dt of birdData">
-        <td>{{dt.species}}</td>
-        <td>{{dt.family}}</td>
-      </tr>
-    </tbody>
-  </table>
+    <mat-card>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <mat-header-row>
+                        <th>Nome em Latim</th>
+                        <th>Nome (Pt/Br)</th>
+                        <th>Nome (Eng)</th>
+                        <th>Família</th>
+                        <th>Cor</th>
+                    </mat-header-row>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dt of birdData">
+                    <td>{{dt.species}}</td>
+                    <td>{{dt.namePtBr}}</td>
+                    <td>{{dt.nameEng}}</td>
+                    <td>{{dt.family}}</td>
+                    <td>{{dt.color}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
 </div>
