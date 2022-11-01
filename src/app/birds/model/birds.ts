@@ -8,7 +8,7 @@ export interface Birds {
   size: number;
   gender: string;
   color: string;
-  habitat: any[];
+  habitat: string;
   photo: string;
   localization: string;
 }

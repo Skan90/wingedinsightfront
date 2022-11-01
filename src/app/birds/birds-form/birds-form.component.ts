@@ -31,7 +31,6 @@ export class BirdsFormComponent implements OnInit {
   onSubmit() {
     this.service.save(this.form.value);
   }
-
   onCancel() {
 
   }
