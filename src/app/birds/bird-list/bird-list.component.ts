@@ -16,8 +16,8 @@ export class BirdListComponent implements OnInit {
     ){
     this.birdsService.getAllBirds().subscribe(
       (response)=>{
-        console.log(response)
-        // this.birdData = response;
+        console.log(response);
+        this.birdData = response;
       }
     )
   }
