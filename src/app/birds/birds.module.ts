@@ -3,6 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
+import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
+
 import { AppMaterialModule } from './../shared/app-material/app-material.module';
 import { BirdCardComponent } from './bird-card/bird-card.component';
 import { BirdListComponent } from './bird-list/bird-list.component';
@@ -24,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppMaterialModule,
     SharedModule,
     ReactiveFormsModule,
+    NgMultiSelectDropDownModule,
   ],
 })
 export class BirdsModule { }

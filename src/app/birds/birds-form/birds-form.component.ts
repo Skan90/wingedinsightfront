@@ -9,7 +9,6 @@ import { BirdsService } from '../service/birds.service';
 })
 export class BirdsFormComponent implements OnInit {
 
-  // habitat: FormGroup;
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private service: BirdsService) {
@@ -19,24 +18,11 @@ export class BirdsFormComponent implements OnInit {
       species: [null],
       family: [null],
       size: [null],
+      habitat:[null],
       gender: [null],
       color: [null],
-      photo: [null],
-      secoBaixo: false,
-      alagado: false,
-      banhado: false,
-      secoAlto: false,
-      arvores: false,
-      banhadoAlto: false
+      photo: [null]
     });
-    // this.habitat = this.formBuilder.group({
-    //   secoBaixo: false,
-    //   alagado: false,
-    //   banhado: false,
-    //   secoAlto: false,
-    //   arvores: false,
-    //   banhadoAlto: false
-    // });
   }
 
   ngOnInit(): void {
@@ -44,7 +30,6 @@ export class BirdsFormComponent implements OnInit {
 
   onSubmit() {
     this.service.save(this.form.value);
-    // this.service.save(this.habitat.value);
   }
 
   onCancel() {

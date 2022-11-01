@@ -63,7 +63,20 @@
         <input matInput placeholder="http://site.com/foto.jpg" formControlName="photo" required>
       </mat-form-field>
 
-      <section class="section" [formGroup]="form">
+
+      <mat-form-field class="full-width">
+        <mat-label>(Habitat) Campo do tipo:</mat-label>
+        <mat-select multiple  formControlName="habitat">
+          <mat-option value="campo seco baixo">Campo Seco Baixo</mat-option>
+          <mat-option value="campo alagado, campo úmido, várzeas alagadas">Várzea/Campo Alagado ou Úmido</mat-option>
+          <mat-option value="banhado com espelho d'água">Banhado com Espelho D'água</mat-option>
+          <mat-option value="campo seco alto, campo sujo">Campos Seco Alto ou "Sujo"</mat-option>
+          <mat-option value="campo com árvores, arbustos ou arvoretas">Campo com Árvores, Arbustos ou Arvoretas</mat-option>
+          <mat-option value="banhado com vegetação alta em geral palha ou gravatá, sem espelho d'água">Banhado com Vegetação Alta, Sem Espelho D'água</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- <section class="section" [formGroup]="form">
         <h4>Selecione o(s) Hábitat(s)</h4>
         <p><mat-checkbox formControlName="secoBaixo">Campo seco baixo</mat-checkbox></p>
         <p><mat-checkbox formControlName="alagado">Campo Alagado, Campo Úmido, Várzeas Alagadas</mat-checkbox></p>
@@ -71,7 +84,7 @@
         <p><mat-checkbox formControlName="secoAlto">Campo Seco Alto, Campo Sujo</mat-checkbox></p>
         <p><mat-checkbox formControlName="arvores">Campo com Árvores, Arbustos ou Arvoretas</mat-checkbox></p>
         <p><mat-checkbox formControlName="banhadoAlto">Banhado com Vegetação Alta, Palha ou Gravatá, <br>Sem Espelho D'água</mat-checkbox></p>
-      </section>
+      </section> -->
 
       <!-- <section class="example-section" [formGroup]="habitat">
         <h4>You chose:</h4>
