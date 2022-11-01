@@ -8,7 +8,7 @@ export interface Birds {
   size: number;
   gender: string;
   color: string;
-  habitat: string;
+  habitat: Array<Array<boolean>>;
   photo: string;
   localization: string;
 }

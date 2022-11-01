@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
@@ -14,12 +15,14 @@ import { BirdsService } from '../service/birds.service';
 export class BirdListComponent implements OnInit {
 
   birds$: Observable<Birds[]>;
-  displayedColumns = ['species', 'namePtBr', 'nameEng', 'family', 'color']
+  displayedColumns = ['species', 'namePtBr', 'nameEng', 'color', 'actions']
   // birdData:Array<any> = [];
 
   constructor(
     private birdsService:BirdsService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public router: Router,
+    public route: ActivatedRoute
     ) {
 
     this.birds$ = this.birdsService.getAllBirds()
@@ -38,6 +41,10 @@ export class BirdListComponent implements OnInit {
   }
   ngOnInit(): void {
 
+  }
+
+  onAdd(){
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 
 }

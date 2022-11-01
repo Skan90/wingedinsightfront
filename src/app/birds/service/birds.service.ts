@@ -24,4 +24,7 @@ export class BirdsService {
       );
     }
 
+    save(record: Birds){
+      console.log(record);
+    }
   }

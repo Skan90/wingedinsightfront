@@ -31,7 +31,7 @@
 
         <!-- Family Column -->
         <ng-container matColumnDef="family">
-          <th mat-header-cell *matHeaderCellDef> Family </th>
+          <th mat-header-cell *matHeaderCellDef> Família </th>
           <td mat-cell *matCellDef="let bird"> {{bird.family}} </td>
         </ng-container>
 
@@ -39,6 +39,24 @@
         <ng-container matColumnDef="color">
           <th mat-header-cell *matHeaderCellDef> Cor </th>
           <td mat-cell *matCellDef="let bird"> {{bird.color}} </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>
+            <button mat-mini-fab color="accent" aria-label="Adicionar uma ave">
+              <mat-icon (click)="onAdd()">note_add</mat-icon>
+            </button>
+          </mat-header-cell>
+
+          <mat-cell *matCellDef="let bird">
+            <button mat-icon-button color="primary" aria-label="Editar uma ave">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="Remover uma ave">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
