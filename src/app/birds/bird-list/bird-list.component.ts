@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BirdsService } from './birds.service';
+import { MatDialog } from '@angular/material/dialog';
+import { catchError, Observable, of } from 'rxjs';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
+
+import { Birds } from '../model/birds';
+import { BirdsService } from '../service/birds.service';
 
 @Component({
   selector: 'app-bird-list',
@@ -8,24 +13,31 @@ import { BirdsService } from './birds.service';
 })
 export class BirdListComponent implements OnInit {
 
-
-  birdData:Array<any> = [];
+  birds$: Observable<Birds[]>;
+  displayedColumns = ['species', 'namePtBr', 'nameEng', 'family', 'color']
+  // birdData:Array<any> = [];
 
   constructor(
-    private birdsService:BirdsService
-    ){
-    this.birdsService.getAllBirds().subscribe(
-      (response)=>{
-        console.log(response);
-<<<<<<< Updated upstream
-        this.birdData = response;
-=======
-          this.birdData = response;
->>>>>>> Stashed changes
-      }
-    )
+    private birdsService:BirdsService,
+    public dialog: MatDialog
+    ) {
+
+    this.birds$ = this.birdsService.getAllBirds()
+    .pipe(
+      catchError(error =>{
+        this.onError('Erro ao carregar lista de aves.')
+        return of([])
+      })
+    );
+  }
+
+  onError(errorMsg: string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
   }
   ngOnInit(): void {
+
   }
 
 }

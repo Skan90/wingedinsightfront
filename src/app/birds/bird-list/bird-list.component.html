@@ -1,26 +1,56 @@
-<div class="container">
-    <mat-card>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <mat-header-row>
-                        <th>Nome em Latim</th>
-                        <th>Nome (Pt/Br)</th>
-                        <th>Nome (Eng)</th>
-                        <th>Família</th>
-                        <th>Cor</th>
-                    </mat-header-row>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let dt of birdData">
-                    <td>{{dt.species}}</td>
-                    <td>{{dt.namePtBr}}</td>
-                    <td>{{dt.nameEng}}</td>
-                    <td>{{dt.family}}</td>
-                    <td>{{dt.color}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </mat-card>
-</div>
+<mat-card>
+
+  <mat-toolbar color="primary">
+    <span>Lista de Aves</span>
+  </mat-toolbar>
+
+  <div *ngIf="birds$ | async as birds; else loading">
+
+    <table mat-table [dataSource]="birds$" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Species Column -->
+        <ng-container matColumnDef="species">
+          <th mat-header-cell *matHeaderCellDef> Nome (Latim) </th>
+          <td mat-cell *matCellDef="let bird"> {{bird.species}} </td>
+        </ng-container>
+
+        <!-- Name Portuguese Column -->
+        <ng-container matColumnDef="namePtBr">
+          <th mat-header-cell *matHeaderCellDef> Nome (Português) </th>
+          <td mat-cell *matCellDef="let bird"> {{bird.namePtBr}} </td>
+        </ng-container>
+
+        <!-- Name English Column -->
+        <ng-container matColumnDef="nameEng">
+          <th mat-header-cell *matHeaderCellDef> Nome (Inglês) </th>
+          <td mat-cell *matCellDef="let bird"> {{bird.nameEng}} </td>
+        </ng-container>
+
+        <!-- Family Column -->
+        <ng-container matColumnDef="family">
+          <th mat-header-cell *matHeaderCellDef> Family </th>
+          <td mat-cell *matCellDef="let bird"> {{bird.family}} </td>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="color">
+          <th mat-header-cell *matHeaderCellDef> Cor </th>
+          <td mat-cell *matCellDef="let bird"> {{bird.color}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+    <ng-template #loading>
+      <div class="loading-spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+
+
+  </mat-card>

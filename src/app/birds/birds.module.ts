@@ -1,19 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule,  } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
-
-
-import { BirdsRoutingModule } from './birds-routing.module';
-import { BirdListComponent } from './bird-list/bird-list.component';
+import { AppMaterialModule } from './../shared/app-material/app-material.module';
 import { BirdCardComponent } from './bird-card/bird-card.component';
-
-// Material
-import { MatButtonModule} from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatHeaderRow, MatTableModule } from '@angular/material/table';
-
+import { BirdListComponent } from './bird-list/bird-list.component';
+import { BirdsRoutingModule } from './birds-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,13 +18,8 @@ import { MatHeaderRow, MatTableModule } from '@angular/material/table';
     CommonModule,
     BirdsRoutingModule,
     HttpClientModule,
-
-    // Material
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    MatTableModule,
-
-  ]
+    AppMaterialModule,
+    SharedModule
+  ],
 })
 export class BirdsModule { }
