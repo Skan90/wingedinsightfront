@@ -14,10 +14,10 @@ export class BirdsService {
 
   private API = "https://wingedinsight.herokuapp.com/api/v1/bird";
 
-  constructor(private _http:HttpClient) { }
+  constructor(private httpClient:HttpClient) { }
 
   getAllBirds() {
-    return this._http.get<Birds[]>(this.API)
+    return this.httpClient.get<Birds[]>(this.API)
     .pipe(
       first(),
       tap(birdList => console.log(birdList))
@@ -25,6 +25,6 @@ export class BirdsService {
     }
 
     save(record: Birds){
-      console.log(record);
+      return this.httpClient.post<Birds>(this.API, record).pipe(first());
     }
   }

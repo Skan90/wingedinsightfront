@@ -11,7 +11,6 @@ import { BirdListComponent } from './bird-list/bird-list.component';
 import { BirdsRoutingModule } from './birds-routing.module';
 import { BirdsFormComponent } from './birds-form/birds-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
 @NgModule({
   declarations: [
     BirdListComponent,

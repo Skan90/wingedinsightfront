@@ -4,7 +4,7 @@
 
   <mat-card-content>
 
-    <form [formGroup]="form" >
+    <form [formGroup]="form" class="min-width">
       <mat-form-field class="full-width">
         <mat-label>Nome em Português</mat-label>
         <input matInput placeholder="Nome da Ave" formControlName="namePtBr" required>
@@ -69,6 +69,10 @@
         <input matInput placeholder="Campo Seco Baixo" formControlName="habitat" required>
       </mat-form-field>
 
+      <mat-form-field class="full-width">
+        <mat-label>Avistamento:</mat-label>
+        <input matInput placeholder="Campus da PUC-RS" formControlName="localization" required>
+      </mat-form-field>
 
       <!-- <mat-form-field class="full-width">
         <mat-label>(Habitat) Campo do tipo:</mat-label>
